@@ -1,0 +1,23 @@
+data Shape = Circle
+  { center :: (Float, Float)
+  , color :: String
+  , radius :: Float
+  , owner :: String
+  }
+  | Rectangle
+  { width :: Float
+  , height :: Float
+  , color :: String
+  , owner :: String
+  } deriving (Show)
+
+circle1 :: Shape
+circle1 = Circle { center = (0,0), color = "Red", radius = 5, owner = "Matabaro" }
+
+rectangle1 :: Shape
+rectangle1 = Rectangle { width = 10, height = 5, color = "Blue", owner = "Matabaro" }
+
+main :: IO ()
+main = do
+  print circle1
+  print rectangle1
