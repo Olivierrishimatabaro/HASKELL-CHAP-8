@@ -1,0 +1,30 @@
+type Address = String
+type Value = Float
+type TransactionId = String
+
+data Transaction = Transaction
+  { fromAddress :: Address
+  , toAddress :: Address
+  , amount :: Value
+  , transactionId :: TransactionId
+  } deriving (Show)
+
+createTransaction :: Address -> Address -> Value -> TransactionId -> Transaction
+createTransaction from to val tid = Transaction
+  { fromAddress = from
+  , toAddress = to
+  , amount = val
+  , transactionId = tid
+  }
+
+-- Exemple avec tes coordonnées
+transaction1 :: Transaction
+transaction1 = createTransaction "Goma" "Karisimbi" 150.0 "TX1001"
+
+transaction2 :: Transaction
+transaction2 = createTransaction "Karisimbi" "Kasika" 200.0 "TX1002"
+
+main :: IO ()
+main = do
+  print transaction1
+  print transaction2
