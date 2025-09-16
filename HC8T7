@@ -1,0 +1,16 @@
+data Animal = Dog String | Cat String deriving (Show)
+
+describeAnimal :: Animal -> String
+describeAnimal (Dog name) = "C'est un chien nommé " ++ name
+describeAnimal (Cat name) = "C'est un chat nommé " ++ name
+
+milou :: Animal
+milou = Dog "Milou"
+
+jojo :: Animal
+jojo = Cat "Jojo"
+
+main :: IO ()
+main = do
+  putStrLn (describeAnimal milou)
+  putStrLn (describeAnimal jojo)
