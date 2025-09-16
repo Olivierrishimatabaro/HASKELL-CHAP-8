@@ -1,0 +1,10 @@
+data Employee = Employee
+  { name :: String
+  , experienceInYears :: Float
+  } deriving (Show)
+
+richard :: Employee
+richard = Employee { name = "Richard Olivier Rishi Matabaro", experienceInYears = 7.5 }
+
+main :: IO ()
+main = putStrLn ("Employé: " ++ name richard ++ ", Expérience: " ++ show (experienceInYears richard) ++ " ans")
