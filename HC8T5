@@ -1,0 +1,16 @@
+data Personne = Personne
+  { name :: String
+  , age :: Int
+  , isEmployed :: Bool
+  } deriving (Show)
+
+personne1 :: Personne
+personne1 = Personne { name = "Olivier", age = 30, isEmployed = True }
+
+personne2 :: Personne
+personne2 = Personne { name = "Matabaro", age = 28, isEmployed = False }
+
+main :: IO ()
+main = do
+  print personne1
+  print personne2
