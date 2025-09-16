@@ -1,0 +1,22 @@
+type Name = String
+type Age = Int
+
+greet :: Name -> Age -> String
+greet name age = "BONSOIR A TOUS, " ++ name ++ " âgé de " ++ show age ++ " ans"
+
+name1 :: Name
+name1 = "MATABARO"
+
+name2 :: Name
+name2 = "RISHI"
+
+age1 :: Age
+age1 = 27
+
+age2 :: Age
+age2 = 29
+
+main :: IO ()
+main = do
+  putStrLn (greet name1 age1)
+  putStrLn (greet name2 age2)
