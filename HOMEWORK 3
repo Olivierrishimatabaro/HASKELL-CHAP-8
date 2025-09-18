@@ -1,0 +1,25 @@
+-- Définir un type de données pour le type de vin et son degré d'alcool
+data WineType = Rouge Double | Blanc Double | Rose Double
+    deriving Show
+
+-- Exemples de vins avec leur degré d'alcool
+vinRouge :: WineType
+vinRouge = Rouge 14.5
+
+vinBlanc :: WineType
+vinBlanc = Blanc 13.0
+
+vinRose :: WineType
+vinRose = Rose 12.0
+
+-- Fonction pour afficher les vins
+printWines :: IO ()
+printWines = do
+    putStrLn "Exemples de vins :"
+    print vinRouge
+    print vinBlanc
+    print vinRose
+
+-- Point d'entrée principal
+main :: IO ()
+main = printWines
