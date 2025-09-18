@@ -1,0 +1,61 @@
+-- Types et données réutilisées
+type Grape = String
+type Region = (String, String)  -- (Pays, Région)
+
+data WineType = Rouge Double | Blanc Double | Rose Double
+    deriving Show
+
+-- Définir les cépages
+sangiovese, cabernetSauvignon, merlot, garnacha, grenache :: Grape
+sangiovese = "Sangiovese"
+cabernetSauvignon = "Cabernet-Sauvignon"
+merlot = "Merlot"
+garnacha = "Garnacha"
+grenache = "Grenache"
+
+-- Définir les régions
+bordeaux, toscane, rioja :: Region
+bordeaux = ("France", "Bordeaux")
+toscane = ("Italie", "Toscane")
+rioja = ("Espagne", "Rioja")
+
+-- Type d'enregistrement pour une étiquette
+data Label = Label
+    { grapes :: [Grape]   -- Liste de cépages
+    , region :: Region    -- Région d'origine
+    , wineType :: WineType -- Type de vin et degré d'alcool
+    } deriving Show
+
+-- Étiquettes pour les vins donnés
+larrosaRose :: Label
+larrosaRose = Label
+    { grapes = [grenache]
+    , region = rioja
+    , wineType = Rose 14.0
+    }
+
+castiglioni :: Label
+castiglioni = Label
+    { grapes = [sangiovese]
+    , region = toscane
+    , wineType = Rouge 12.5
+    }
+
+lePetitHautLafitte :: Label
+lePetitHautLafitte = Label
+    { grapes = [cabernetSauvignon, merlot]
+    , region = bordeaux
+    , wineType = Rouge 13.5
+    }
+
+-- Fonction pour afficher toutes les étiquettes
+printLabels :: IO ()
+printLabels = do
+    putStrLn "Étiquettes de vins :"
+    print larrosaRose
+    print castiglioni
+    print lePetitHautLafitte
+
+-- Point d'entrée principal
+main :: IO ()
+main = printLabels
