@@ -1,0 +1,24 @@
+-- Synonyme de type pour une région viticole
+type Region = (String, String)  -- (Pays, Région)
+
+-- Définir quelques régions célèbres
+bordeaux :: Region
+bordeaux = ("France", "Bordeaux")
+
+toscane :: Region
+toscane = ("Italie", "Toscane")
+
+rioja :: Region
+rioja = ("Espagne", "Rioja")
+
+-- Fonction pour afficher les régions
+printRegions :: IO ()
+printRegions = do
+    putStrLn "Voici quelques régions viticoles célèbres :"
+    print bordeaux
+    print toscane
+    print rioja
+
+-- Point d'entrée principal
+main :: IO ()
+main = printRegions
