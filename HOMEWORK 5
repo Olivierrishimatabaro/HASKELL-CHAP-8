@@ -1,0 +1,52 @@
+-- Définition des types et données
+type Grape = String
+type Region = (String, String)  -- (Pays, Région)
+
+data WineType = Rouge Double | Blanc Double | Rose Double
+    deriving Show
+
+data Label = Label
+    { grapes :: [Grape]
+    , region :: Region
+    , wineType :: WineType
+    } deriving Show
+
+-- Cépages
+sangiovese, cabernetSauvignon, merlot, garnacha, grenache :: Grape
+sangiovese = "Sangiovese"
+cabernetSauvignon = "Cabernet-Sauvignon"
+merlot = "Merlot"
+garnacha = "Garnacha"
+grenache = "Grenache"
+
+-- Régions
+bordeaux, toscane, rioja :: Region
+bordeaux = ("France", "Bordeaux")
+toscane = ("Italie", "Toscane")
+rioja = ("Espagne", "Rioja")
+
+-- Étiquettes de vin
+larrosaRose :: Label
+larrosaRose = Label [grenache] rioja (Rose 14.0)
+
+castiglioni :: Label
+castiglioni = Label [sangiovese] toscane (Rouge 12.5)
+
+lePetitHautLafitte :: Label
+lePetitHautLafitte = Label [cabernetSauvignon, merlot] bordeaux (Rouge 13.5)
+
+-- Fonction containsGrape
+containsGrape :: [Label] -> Grape -> Bool
+containsGrape labels grape = any (\label -> grape `elem` grapes label) labels
+
+-- Liste de test
+grapeList :: [Label]
+grapeList = [larrosaRose, castiglioni, lePetitHautLafitte]
+
+newGrape :: Grape
+newGrape = "Pinot Noir"
+
+-- Test de la fonction
+main :: IO ()
+main = do
+    putStrLn $ "La liste contient " ++ newGrape ++ " ? " ++ show (containsGrape grapeList newGrape)
