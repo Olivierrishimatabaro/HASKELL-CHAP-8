@@ -1,0 +1,32 @@
+-- Définir un synonyme de type pour les cépages
+type Grape = String
+
+-- Définir quelques cépages
+sangiovese :: Grape
+sangiovese = "Sangiovese"
+
+cabernetSauvignon :: Grape
+cabernetSauvignon = "Cabernet-Sauvignon"
+
+merlot :: Grape
+merlot = "Merlot"
+
+garnacha :: Grape
+garnacha = "Garnacha"
+
+olivier :: Grape
+olivier = "Olivier"
+
+-- Fonction pour afficher les cépages
+printGrapes :: IO ()
+printGrapes = do
+    putStrLn "Voici quelques cépages célèbres :"
+    putStrLn sangiovese
+    putStrLn cabernetSauvignon
+    putStrLn merlot
+    putStrLn garnacha
+    putStrLn olivier
+
+-- Point d'entrée principal
+main :: IO ()
+main = printGrapes
